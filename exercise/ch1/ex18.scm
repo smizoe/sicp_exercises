@@ -1,0 +1,10 @@
+(define (fast-expt-iter b counter product)
+  (cond
+    ((= counter 0) product)
+    ((even? counter) (fast-expt-iter (mul b b)
+                                     (halve counter )
+                                     product))
+    (else (fast-expt-iter (square b)
+                          (halve (- counter 1) )
+                          (mul product b)))))
+(define (fast-expt b n) (fast-expt-iter b n 1))
