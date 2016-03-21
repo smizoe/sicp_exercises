@@ -151,7 +151,10 @@
     (else (find-divisor n (+ test-divisor 1)))))
 (define (divides? a b) (= (remainder b a) 0))
 
-(define (prime? n) (= n (smallest-divisor n)))
+(define (prime? n)
+  (if (= n 1)
+    #f
+    (= n (smallest-divisor n))))
 
 (define (expmod base exp m)
   (cond
